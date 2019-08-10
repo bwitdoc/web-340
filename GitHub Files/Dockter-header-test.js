@@ -12,6 +12,6 @@
 
 var header = require('./Dockter-header.js');
 
-console.log(header.display("Brittany", "Dockter", "Assignemnt 7.3"));
+console.log(header.display("Brittany", "Dockter", "Exercise 1.3"));
 
 // End Program
