@@ -19,7 +19,6 @@ id=21208041
 */
 
 // Start Program
-
 var url = require('url');
 
 var parsedURL = url.parse('https://www.bu.edu/profile?id=21208041');
@@ -28,5 +27,6 @@ console.log("");
 console.log(parsedURL.protocol);
 console.log(parsedURL.host);
 console.log(parsedURL.query);
+
 
 // End Program
