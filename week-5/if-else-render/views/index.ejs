@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div role="main" class="container">
+        <br/><br/>
+        <h2>List of Names</h2>
+        <% for (var k=0; k < names.length; k++) { %>
+
+            <!-- if -->
+            <% if (names[k] == "Adam") { %>
+                <div class="alert alert-success" role="alert">
+                    <strong><%= names[k] %></strong></div>
+                <% } %>
+            <!-- // end if -->
+
+            <!-- if -->
+            <% if (names[k] == "Bradley") { %>
+                <div class="alert alert-info" role="alert">
+                    <strong><%= names[k] %></strong></div>
+                <% } %>
+            <!-- // end if -->
+
+            <!-- if -->
+            <% if (names[k] == "Olivia") { %>
+                <div class="alert alert-warning" role="alert">
+                    <strong><%= names[k] %></strong></div>
+                <% } %>
+            <!-- // end if -->
+
+            <!-- if -->
+            <% if (names[k] == "Stephanie") { %>
+                <div class="alert alert-danger" role="alert">
+                    <strong><%= names[k] %></strong></div>
+                <% } %>
+            <!-- // end if -->
+            <% } %>
+
+            <!-- end for loop -->
+   </div>
+</body>
+</html>
