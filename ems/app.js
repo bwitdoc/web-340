@@ -14,6 +14,9 @@ app.get("/", function(request, response) {
     });
 });
 
+// mLab connection
+var mongoDB = "mongodb+srv://admin:admin@buwebdev-cluster-1-pohh3.mongodb.net/test?retryWrites=true&w=majority"
+
 http.createServer(app).listen(8080, function() {
     console.log("Application started on port 8080!");
 });
