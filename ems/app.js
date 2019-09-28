@@ -15,7 +15,7 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var helmet = require("helmet");
 var cookieParser = require("cookie-parser");
-var csurf = require("csurf");
+var csrf = require("csurf");
 var csrfProtection = csrf({cookie: true});
 
 var mongoDB = "mongodb+srv://admin:admin@buwebdev-cluster-1-pohh3.mongodb.net/test?retryWrites=true&w=majority";
@@ -69,9 +69,42 @@ app.get("/", function(request, response) {
         message: "New Employee Entry Page"
     });
 });
+app.get("/list", function(request, response) {
+    employee.find({}, function(error, employee) {
+        if (error) throw error;
+
+        response.render("list", {
+            title: "Employee List",
+            employee: employee
+        });
+    });
+});
 
 app.post("/process", function(request, response) {
     console.log(request.body.txtName);
+    response.redirect("/");
+});
+
+app.post("/process", function(request, response) {
+    // console.log(request.body.txtName);
+
+    if(!request.body.txtName) {
+        response.status(400).send("Entries must have a name");
+        return;
+    }
+
+    var employeeName = request.body.txtName;
+    console.log(employeeName);
+
+    var employee = new employee({
+        name: employeeName
+    });
+
+    employee.save(function (error) {
+        if (error) throw error;
+        console.log(employeeName + " saved successfully!");
+    });
+
     response.redirect("/");
 });
 
