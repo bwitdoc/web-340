@@ -30,6 +30,20 @@
       <a href="/">&larr; OK</a>
     </div>
 
+    <div role="main" class="container" style="width: 50%">
+        <br/> <br/> 
+          <h2> Employee Record </h2>
+            <div>
+              <div class="form-group">
+                txtName">Name:
+                  <label for="txtName">Name:</label>
+                    <input type="text" class="form-control" id="txtName" value="<%= employee[0].name %>" name="txtName"/>
+                </div>
+            </div>
+            <br/> <br/>
+              <a href="/list">Return to Employees</a>
+    </div>
+
     <% include scripts %>
   </body>
 </html>

@@ -2,7 +2,7 @@
 =======================================
 ; Title:  app.js
 ; Author: Brittany Dockter
-; Date:   25 September 2019
+; Date:   5 October 2019
 ; Description: app.js
 ;======================================
 */
@@ -77,6 +77,23 @@ app.get("/list", function(request, response) {
             title: "Employee List",
             employee: employee
         });
+    });
+});
+
+app.get("/view/:queryName", function(request, response) {
+    var queryName = request.params.queryName;
+    employee.find({'name': queryName}, function(error, employees) {
+        if (error) throw error;
+        console.log(employees);
+        if (employees.length > 0) {
+            response.render("view", {
+                title: "Employee Record",
+                employee: employees
+            })
+        }
+        else {
+            response.redirect("/list")
+        }
     });
 });
 
